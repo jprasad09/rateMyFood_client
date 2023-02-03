@@ -59,7 +59,7 @@ const Login = () => {
         password: "",
       })
 
-      cookies.set('token', response.data.token, { path: '/', secure: true, httpOnly: true })
+      cookies.set('token', response.data.token, { path: '/' })
 
       dispatch(getUserOrRestaurantData(response.data))
 
