@@ -19,7 +19,7 @@ const RestaurantCard = ({ restaurant }) => {
     <div onClick={getRestaurant} className={styles.restaurantCardContainer}>
 
       <div className={styles.restaurantCardImgSection}>
-          <img src={RestaurantImg} alt="RestaurantImg" className={styles.restaurantCardImg}/>
+          <img src={`https://ivory-yak-tux.cyclic.app/${restaurant.images[0]}`} alt="RestaurantImg" className={styles.restaurantCardImg}/>
       </div>
 
       <div className={styles.restaurantCardContentSection}>
