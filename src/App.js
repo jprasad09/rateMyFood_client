@@ -22,3 +22,5 @@ function App() {
 }
 
 export default App
+
+export const baseURL = 'https://ivory-yak-tux.cyclic.app/'

@@ -28,32 +28,61 @@ export const getRestaurantsAfterSearch = (reqData) => {
       }
   
     }
-  }
-  
+}
+
 export const getSingleRestaurantById = (reqData) => {
-    return async dispatch => {
+  return async dispatch => {
 
-      dispatch({ type: restaurantConstants.GET_SINGLE_RESTAURANT_BY_ID_REQUEST });
+    dispatch({ type: restaurantConstants.GET_SINGLE_RESTAURANT_BY_ID_REQUEST });
 
-      try {
+    try {
 
-        const response = await axios.get(`/restaurants/${reqData}`, 
-            {
-                headers: { 'Content-Type': 'application/json', 'Accept' : 'application/json' },
-            })
+      const response = await axios.get(`/restaurants/${reqData}`, 
+          {
+              headers: { 'Content-Type': 'application/json', 'Accept' : 'application/json' },
+          })
+      
+      dispatch({
+          type: restaurantConstants.GET_SINGLE_RESTAURANT_BY_ID_SUCCESS,
+          payload: response.data 
+      })
+
+    } catch (error) {
 
         dispatch({
-            type: restaurantConstants.GET_SINGLE_RESTAURANT_BY_ID_SUCCESS,
-            payload: response.data 
+            type: restaurantConstants.GET_SINGLE_RESTAURANT_BY_ID_FAILURE,
+            payload: error 
+        });
+    }
+
+  }
+}
+
+export const getAllRestaurants = (reqData) => {
+  return async dispatch => {
+
+    dispatch({ type: restaurantConstants.GET_ALL_RESTAURANTS_REQUEST });
+
+    try {
+
+      const response = await axios.get('/restaurants',
+        {
+            headers: { 'Content-Type': 'application/json', 'Accept' : 'application/json' },
         })
 
-      } catch (error) {
+      dispatch({
+          type: restaurantConstants.GET_ALL_RESTAURANTS_SUCCESS,
+          payload: response.data 
+      })
 
-          dispatch({
-              type: restaurantConstants.GET_SINGLE_RESTAURANT_BY_ID_FAILURE,
-              payload: error 
-          });
-      }
+    } catch (error) {
 
+        dispatch({
+            type: restaurantConstants.GET_ALL_RESTAURANTS_FAILURE,
+            payload: error 
+        });
     }
+
+  }
 }
+

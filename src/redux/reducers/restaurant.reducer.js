@@ -6,7 +6,10 @@ const initState = {
     restaurantsAfterSearchError: null,
     singleRestaurantById: {},
     singleRestaurantByIdLoading: false,
-    singleRestaurantByIdError: null
+    singleRestaurantByIdError: null,
+    allRestaurants: {},
+    allRestaurantsLoading: false,
+    allRestaurantsError: null,
 }
  
 export default (state = initState, action) => {
@@ -57,9 +60,32 @@ export default (state = initState, action) => {
             }
             break;
 
+        case restaurantConstants.GET_ALL_RESTAURANTS_REQUEST:
+            state = {
+                ...initState,
+                allRestaurantsLoading: true
+            }
+            break;
+
+        case restaurantConstants.GET_ALL_RESTAURANTS_SUCCESS:
+            state = {
+                ...state,
+                allRestaurants: action.payload,
+                allRestaurantsLoading: false
+            }
+            break;
+
+        case restaurantConstants.GET_ALL_RESTAURANTS_FAILURE:
+            state = {
+                ...initState,
+                allRestaurantsLoading: false,
+                allRestaurantsError: action.payload
+            }
+            break;
+            
         default:
             break
-            
+        
     }
 
     return state;
