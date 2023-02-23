@@ -23,4 +23,4 @@ function App() {
 
 export default App
 
-export const baseURL = 'https://ivory-yak-tux.cyclic.app/'
+export const baseURL = 'https://ratemyfoodserver.onrender.com/'
