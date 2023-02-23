@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: 'https://ivory-yak-tux.cyclic.app/api',
+  baseURL: 'https://ratemyfoodserver.onrender.com/api',
   withCredentials: true
 });
 
