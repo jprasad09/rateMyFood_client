@@ -22,5 +22,3 @@ function App() {
 }
 
 export default App
-
-export const baseURL = 'https://ratemyfoodserver.onrender.com/'
