@@ -60,13 +60,13 @@ const ReviewsSection = ({ user, reviews }) => {
                   <p>{review?.review}</p>
                   <span>Rating - {review?.rating}</span>
                 </div>
-                <div>
+{/*                 <div>
                   <LikeDislike
                     review
                     review_id={review?._id}
                     user_id={user?._id}
                   />
-                </div>
+                </div> */}
               </div>
             );
           })
