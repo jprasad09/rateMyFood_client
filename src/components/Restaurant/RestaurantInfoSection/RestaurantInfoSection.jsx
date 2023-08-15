@@ -123,7 +123,7 @@ const RestaurantInfoSection = ({ user, restaurant }) => {
                 return <span key={index}>{item}</span>;
               })}
           </div>
-          <h4 style={{ marginTop: "10px" }}>Overall Rating - {restaurant?.average_rating.toFixed(1)}</h4>
+          <h4 style={{ marginTop: "10px" }}>Overall Rating - {restaurant?.average_rating?.toFixed(1)}</h4>
         </div>
         <div className={styles.buttonContainer}>
           <div style={{ fontSize: "30px", display: "flex", alignItems: "center", columnGap: "8px" }}>
